@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="style/animations.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link rel="icon" type="image/png" href="img/favicon.png" />
+		<title>Team False Flags</title>
+		<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+		<script src="js/main.js"></script>
+
+	</head>
+
+	<body class="theme-green">
+		<div id="monitor" class="on">
+			<div id="screen">
+				<div id="crt">
+					<div class="scanline"></div>
+					<div class="terminal" id="terminal"></div>
+					<div class="terminal" id="terminal2" style="display: none; padding: 0px">
+						<div id='frame'>
+							<div id='menuBar'>
+								Browser
+								<button id='closeBrowser' onClick="closeWriteups()">X</button>
+							</div>
+							<div id='frameBox'>
+								<iframe id='iframe' src='https://en.wikipedia.org/wiki/Main_Page'></iframe>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var element = document.getElementById("terminal");
+			var i1 = 0;
+			var i2 = 0;
+			var i3 = 0;
+			var i4 = 0;
+			var i5 = 0;
+			var run1 = false;
+			var run2 = false;
+			var run3 = false;
+			var run4 = false;
+			var run5 = false;
+			var speed = 50;
+			var element = document.getElementById("terminal");
+			line1 = "WELCOME TO THE FALSE FLAGS TERMINAL";
+			line2 = "SET TERMINAL/BOOT 01";
+			line3 = "LOADING...";
+			line4 = "..."
+			line5 = "INITIALIZING MENU SYSTEM...";
+			function type5() {
+				if (i5 < line5.length) {
+  				  	element.innerHTML += (line5[i5]);
+  				  	i5++;
+  				  	setTimeout(type5, speed);
+  				} else{
+					if (run5 == false) {
+						element.innerHTML = "";
+						element.className += " smallText"
+						typeLogo();
+						run5 = true;
+					}
+				}
+			}
+			function type4() {
+				if (i4 < line4.length) {
+  				  	element.innerHTML += (line4[i4]);
+					element.innerHTML += "<br>";
+  				  	i4++;
+  				  	setTimeout(type4, (speed*15));
+  				} else{
+					  type5();
+					}
+			}
+			function type3() {
+				if (i3 < line3.length) {
+  				  	element.innerHTML += (line3[i3]);
+  				  	i3++;
+  				  	setTimeout(type3, speed);
+  				} else{
+					if (run3 == false) {
+						element.innerHTML += "<br>";
+						run3 = true;
+					}
+					  type4();
+					}
+			}
+			function type2() {
+				if (i2 < line2.length) {
+  				  	element.innerHTML += (line2[i2]);
+  				  	i2++;
+  				  	setTimeout(type2, speed);
+  				} else{
+					if (run2 == false) {
+						element.innerHTML += "<br>";
+						run2 = true;
+					}
+					  type3();
+					}
+			}
+			function type1() {
+				if (i1 < line1.length) {
+  				  	element.innerHTML += (line1[i1]);
+  				  	i1++;
+  				  	setTimeout(type1, speed);
+  				} else{
+					  if (run1 == false) {
+						element.innerHTML += "<br>";
+						run1 = true;
+					  }
+					  type2();
+					}
+			}
+
+			type1();
+			
+			function showWriteups(){
+				
+				element.style.display = "none";
+				document.getElementById("terminal2").style.display = "";
+			}
+			function closeWriteups(){
+				
+				document.getElementById("terminal2").style.display = "none";
+				element.style.display = "";
+			}
+		</script>
+	</body>
+</html>
